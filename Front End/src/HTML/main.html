@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Information and Troubleshooting</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1 class="header-title">Product Information and Troubleshooting</h1>
+      <div class="nav-links">
+        <a href="login.html" class="nav-link signin-button">Signin</a>
+        <a href="signup.html" class="nav-link signup-button">Signup</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <aside id="sidebar">
+      <h2>Search History</h2>
+      <ul id="history-list">
+        <!-- Search history will be populated here by JavaScript -->
+      </ul>
+    </aside>
+
+    <section id="content">
+      <div id="upload-section">
+        <h2>Upload File</h2>
+        <div class="container">
+          <form id="upload-form">
+            <label for="file-input">Choose a file:</label>
+            <div class="input-group">
+              <input accept=".pdf" class="inpdddut" name="arquivo" id="file-input" type="file">
+              <button onclick="showMessage()"  class="button">Click Me</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+    
+
+
+
+
+      <div id="chat-section" class="hidden">
+        <h2>Chatbot</h2>
+        <div id="chatbox">
+          <!-- Chat messages will appear here -->
+
+    </section>
+  </main>
+
+  <div class="main-content">
+    <!-- Main content of the homepage -->
+  </div>
+
+  <div class="form-container" id="form-container">
+    <!-- Signup form will be loaded here -->
+  </div>
+
+  <script type="text/javascript">
+    function showMessage() {
+        alert("Please Signin/Signup");
+    }
+</script>
+
+
+<script src="scripts.js"></script>
+</body>
+</html>
