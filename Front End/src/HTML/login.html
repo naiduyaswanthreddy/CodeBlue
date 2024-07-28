@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="login.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Additional stylesheets -->
+    <link rel="stylesheet" href="styletran.css">
+    <link rel="stylesheet" href="styles1.css"> <!-- Added the same stylesheet here for consistency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+</head>
+<body>
+    <header>
+        <!-- You can add header content here if needed -->
+    </header>
+        <div class="container">
+        <div class="form">
+            <form action="/login" method="POST">
+                <h2>Login Here</h2>
+                <input type="email" name="email" id="email" class="input-feild" placeholder="Username">
+                <input type="password" name="password" id="password" class="input-feild" placeholder="Password">
+
+                <button class="animated-button" onclick="redirectToPage2()">
+                    <span>Login</span>
+                    <span></span>
+                </button>
+
+                <p class="link">Don't have an account? </p>
+                <p class="liw"><a href="signup.html" class="signup-link">Signup here</a></p>
+                <p class="link2">Login with</p>
+
+                <div class="icon">
+                    <a href="https://www.facebook.com/" class="social-link1"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://www.whatsapp.com/" class="social-link2"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    <a href="https://www.google.com/" class="social-link3"><i class="fab fa-google fa-2x"></i></a>
+                </div>
+                <p class="link"><a href="#" class="forgot-password-link" onclick="document.getElementById('forgotPasswordModal').style.display='block'">Forgot Password?</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('forgotPasswordModal').style.display='none'">&times;</span>
+            <form id="forgotPasswordForm">
+                <h2>Forgot Password</h2>
+                <input type="email" name="forgotEmail" id="forgotEmail" placeholder="Enter your email" required>
+                <button type="button" onclick="sendOTP()">Send OTP</button>
+            </form>
+            <form id="verifyOTPForm" style="display: none;">
+                <h2>Verify OTP</h2>
+                <input type="text" name="otp" id="otp" placeholder="Enter OTP" required>
+                <button type="button" onclick="verifyOTP()">Verify OTP</button>
+            </form>
+            <form id="resetPasswordForm" style="display: none;">
+                <h2>Reset Password</h2>
+                <input type="password" name="newPassword" id="newPassword" placeholder="Enter new password" required>
+                <button type="button" onclick="resetPassword()">Reset Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script  src="scripts.js"></script>>
+</body>
+</html>
