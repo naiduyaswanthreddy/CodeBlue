@@ -108,7 +108,7 @@ header {
   
   #sidebar {
     width: 25%;
-    height:78ch;
+    height:67ch;
     background-color: #92b7d9;
     border-right: 1px solid #fffefe;
     padding: 1rem;
@@ -336,3 +336,39 @@ header {
   }
 
 
+
+
+
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  footer .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  footer .footer-content div {
+    margin: 10px;
+  }
+  footer .footer-content div h3 {
+    margin-bottom: 10px;
+  }
+  footer .footer-content div a {
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+    display: block;
+  }
+  footer .social-media a {
+    margin: 0 10px;
+  }
+  footer .social-media i {
+    font-size: 24px;
+  }
+  footer .footer-bottom {
+    margin-top: 20px;
+  }
