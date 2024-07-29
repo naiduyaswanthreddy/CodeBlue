@@ -101,14 +101,16 @@ header {
     margin-right: 1rem;
   }
   
-  main {
+   main {
     display: flex;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 9px);
+    min-height: 740px; 
   }
+  
   
   #sidebar {
     width: 25%;
-    height:67ch;
+    height:79.5ch;
     background-color: #92b7d9;
     border-right: 1px solid #fffefe;
     padding: 1rem;
