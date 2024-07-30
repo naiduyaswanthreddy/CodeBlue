@@ -4,11 +4,7 @@ const mysql = require('mysql2');
 const path = require('path');
 const session = require('express-session'); 
 const nodemailer = require('nodemailer');
-
-
-
-
-
+const { spawn } = require('child_process');
 
 const app = express();
 app.use(bodyParser.json()); // Parse incoming JSON data
@@ -32,8 +28,6 @@ const connection = mysql.createConnection({
     database: 'tata'
 });
 
-
-
 connection.connect(err => {
     if (err) {
         console.error('Error connecting to MySQL database:', err);
@@ -42,11 +36,10 @@ connection.connect(err => {
     console.log('Connected to MySQL database');
 });
 
-
 // Function to send files with correct paths
 const sendFile = (res, filename, message) => {
     const filePath = path.join(__dirname, '..', 'CodeBlue' ,'Front End', 'src', 'HTML', filename);
-        console.log('Sending file:', filePath); // Debugging log
+    console.log('Sending file:', filePath); // Debugging log
     if (message) {
         res.redirect(`/${filename}?message=${encodeURIComponent(message)}`);
     } else {
@@ -59,16 +52,12 @@ app.get("/", function (req, res) {
 });
 
 app.get("/login", function (req, res) {
-    sendFile(res, "/login.html");
+    sendFile(res, "login.html");
 });
 
 app.get("/signup", function (req, res) {
-    sendFile(res, "/signup.html");
+    sendFile(res, "signup.html");
 });
-
-
-
-
 
 app.post('/signup', function (req, res) {
     const { name, email, password, confirmPassword, phone, gender } = req.body;
@@ -91,11 +80,6 @@ app.post('/signup', function (req, res) {
     });
 });
 
-
-
-
-
-
 app.post("/login", function (req, res) {
     const { email, password } = req.body;
     connection.query("SELECT * FROM loginuser WHERE user_mail = ? AND user_password = ?", [email, password], function (error, results, fields) {
@@ -112,17 +96,8 @@ app.post("/login", function (req, res) {
     });
 });
 
-
-
-
-
-
-
-
-
-// Send OTP route
 app.get("/forgot-password", function (req, res) {
-    sendFile(res, "/forgot-password.html");
+    sendFile(res, "forgot-password.html");
 });
 
 app.post('/send-otp', (req, res) => {
@@ -181,7 +156,6 @@ app.post('/send-otp', (req, res) => {
     });
 });
 
-// Verify OTP and reset password
 app.post('/reset-password', (req, res) => {
     const { email, otp, newPassword } = req.body;
     connection.query('SELECT otp FROM loginuser WHERE user_mail = ?', [email], (error, results) => {
@@ -204,27 +178,34 @@ app.post('/reset-password', (req, res) => {
     });
 });
 
-
-
-
-
-
-
-
 app.get("/welcome", function (req, res) {
-    sendFile(res, "/welcome.html");
+    sendFile(res, "welcome.html");
+});
+
+// New endpoint for chatbot interaction
+app.post('/api/chatbot', (req, res) => {
+    const { message } = req.body;
+
+    const pythonProcess = spawn('python', ['D:\\PROGRAMING\\CodeBlue\\Backend\\testing.py', message]);
+
+    let dataToSend = '';
+
+    pythonProcess.stdout.on('data', (data) => {
+        dataToSend += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    pythonProcess.on('close', (code) => {
+        if (code !== 0) {
+            return res.status(500).send('Error occurred while generating response.');
+        }
+        res.json({ response: dataToSend });
+    });
 });
 
 app.listen(4000, () => {
     console.log('Server is running on port 4000');
 });
-
-
-
-
-
-
-
-
-
-
