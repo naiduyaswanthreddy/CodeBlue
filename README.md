@@ -1,6 +1,6 @@
 # Tech HelpDesk
 
-This project is a simple chat application built using Flask, fine-tuned GPT-2 for AI responses, and MariaDB as the backend database. It includes functionalities for user registration, login, and a protected chat page, designed to demonstrate the integration of a machine learning model within a web application framework.
+This project is a chat application built using Flask, fine-tuned GPT-2 for AI responses, and MariaDB as the backend database. It includes functionalities for user registration, login, and a protected chat page, designed to demonstrate the integration of a machine learning model within a web application framework.
 
 ## Features
 
