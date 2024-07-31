@@ -29,14 +29,14 @@ This project is a simple chat application built using Flask, fine-tuned GPT-2 fo
    git clone https://github.com/naidyyaswanthreddy/CodeBlue.git
    cd flask-chat-app
   
-3. **Set up a virtual environment:**:
+3. **Set up a virtual environment**:
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-4. **Install dependencies:**:
+4. **Install dependencies**:
    ```bash
    pip install flask flask-wtf flask-login transformers torch pymysql datasets
-5. **Set up a virtual environment:**:
+5. **Set up a virtual environment**:
    ```bash
    python3 chatbot.py
 
